@@ -47,3 +47,23 @@ imapgrab.py [-ldaSvMB] [-s] SERVER [-P] PORT [-u] USERNAME [-p] PASSWORD [-m] "B
 -    --version         Print version
 -    --about           Display detailed info
 -    --help, -h        Print help with command options
+
+## Examples: ##
+1) List available mailboxes
+```
+imapgrab.py -l -s imap.example.com -u username -p password
+```
+2) Download "box1" and "box2" from server imap.example.com (save "box1.mbox" and "box2.mbox")
+```
+imapgrab.py -d -s imap.example.com -u username -p password -m "box1, box2"
+```
+3) Download all mailboxes except "box3"
+```
+imapgrab.py -d -s imap.example.com -u username -p password -m "_ALL_, -box3"
+```
+4) Download all Gmail custom labels and INBOX (none of the [Gmail]* mailboxes)
+```
+imapgrab.py -d -S -s imap.gmail.com -u username -p password -m "_ALL_, -_Gmail_"
+```
+5) Download Gmail label "receipts"
+imapgrab.py -d -S -s imap.gmail.com -u username -p password -m "receipts"
